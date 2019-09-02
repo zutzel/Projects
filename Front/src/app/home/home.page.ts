@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {HttpClient} from '@angular/common/http';
 import {HttpService} from '../services/http.service';
-import {NavController, NavParams} from "@ionic/angular";
+import {NavParams} from "@ionic/angular";
+import {Storage} from "@ionic/storage";
 
 @Component({
     selector: 'app-home',
@@ -15,25 +15,21 @@ export class HomePage {
     @Input() Name: string;
 
 
-
     constructor(
         public httpService: HttpService,
-        public navCtrl:NavController,
+        private storage: Storage,
         public router: Router) {
         // this.Name = navParams.data
     }
 
-    async ionViewDidEnter() {
-      console.log(this.Name);
-    }
-
-    async reloadInvoices() {
-        // this.invoices = await this.httpService.get(`${this.environment}/v1/invoices`);
-        const message = 'Invoices reloaded';
-    }
-
     name() {
-        this.result.Name = this.Name;
+        this.storage.get('name').then((res) => {
+            this.result.Name = res;
+        });
+        this.storage.clear().then(r=>{})
+    }
+    async time() {
+        this.result.Time = await this.httpService.get(`${this.environment}/TIME`);
     }
 
     async date() {
@@ -45,7 +41,7 @@ export class HomePage {
     }
 
     quit() {
-        localStorage.clear();
+        this.result=[];
         this.router.navigateByUrl('log-in');
     }
 }

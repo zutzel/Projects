@@ -15,6 +15,15 @@ const route = () => {
             console.error(err);
         }
     });
+    router.get('/TIME', async (req, res) => {
+        try {
+            let time = date;
+            console.log(time);
+            res.status(HttpStatus.OK).send( [time] );
+        } catch (err) {
+            console.error(err);
+        }
+    });
 
     router.get('/DATE', async (req, res) => {
         try {
@@ -37,13 +46,7 @@ const route = () => {
         }
     });
 
-    router.get('/quit', async (req, res) => {
-        try {
-            //const invoicesHistory = await invoiceController.getInvoicesHistory(req, res);
-        } catch (err) {
-            console.error(err);
-        }
-    });
+    router.get('/quit', async () => {});
 
     return router;
 };

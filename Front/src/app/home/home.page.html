@@ -17,6 +17,9 @@
           <ion-button (click)="name()">name</ion-button>
         </ion-col>
         <ion-col text-center>
+          <ion-button (click)="time()">time</ion-button>
+        </ion-col>
+        <ion-col text-center>
           <ion-button (click)="date()">date</ion-button>
         </ion-col>
         <ion-col text-center>
@@ -25,12 +28,10 @@
       </ion-row>
       <ion-row>
         <ion-col text-center>{{result.Name}}</ion-col>
+        <ion-col text-center>{{result.Time | date : 'medium'}}</ion-col>
         <ion-col text-center>{{result.Date}}</ion-col>
         <ion-col text-center>{{result.Hour}}</ion-col>
       </ion-row>
-      <ion-title *ngIf="!this.result.length" text-center class="ion-padding">
-        Nothing to see here
-      </ion-title>
     </ion-grid>
 
   </div>

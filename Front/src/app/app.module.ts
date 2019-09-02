@@ -12,11 +12,11 @@ import {HomePage} from './home/home.page'
 import {HomePageModule} from "./home/home.module";
 import {LogInPage} from "./log-in/log-in.page";
 import {LogInPageModule} from "./log-in/log-in.module";
+import {FormsModule} from "@angular/forms";
+import { IonicStorageModule } from '@ionic/storage'
 
 @NgModule({
-    declarations: [AppComponent,
-        LogInPage,
-        HomePage],
+    declarations: [AppComponent],
     entryComponents: [LogInPage,
         HomePage],
     imports: [
@@ -25,7 +25,10 @@ import {LogInPageModule} from "./log-in/log-in.module";
         LogInPageModule,
         HomePageModule,
         IonicModule.forRoot(),
-        AppRoutingModule],
+        IonicStorageModule.forRoot(),
+        AppRoutingModule,
+        FormsModule
+    ],
     providers: [
         LogInPageModule,
         HomePageModule,
