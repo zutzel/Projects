@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-col>
+      <ion-title class="ion-margin-vertical"> Exercício 3 - Guilherme Ditzel</ion-title>
+    </ion-col>
+    <ion-col>
+      <ion-button (click)="quit()" class="ion-float-right margin-top-10">quit</ion-button>
+    </ion-col>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-grid>
+      <ion-row>
+        <ion-col text-center>
+          <ion-button (click)="name()">name</ion-button>
+        </ion-col>
+        <ion-col text-center>
+          <ion-button (click)="date()">date</ion-button>
+        </ion-col>
+        <ion-col text-center>
+          <ion-button (click)="hour()">hour</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>{{result.Name}}</ion-col>
+        <ion-col text-center>{{result.Date}}</ion-col>
+        <ion-col text-center>{{result.Hour}}</ion-col>
+      </ion-row>
+      <ion-title *ngIf="!this.result.length" text-center class="ion-padding">
+        Nothing to see here
+      </ion-title>
+    </ion-grid>
+
+  </div>
+</ion-content>
